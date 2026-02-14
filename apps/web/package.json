@@ -10,7 +10,9 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "preflight": "bash scripts/preflight.sh",
+    "test:preflight": "playwright test tests/e2e/preflight.spec.ts --project=chromium"
   },
   "dependencies": {
     "@excalidraw/excalidraw": "^0.18.0",
