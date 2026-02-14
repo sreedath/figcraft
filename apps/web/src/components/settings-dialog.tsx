@@ -48,6 +48,9 @@ export function SettingsDialog({ open, onOpenChange }: SettingsDialogProps) {
                 </button>
               </Dialog.Close>
             </div>
+            <Dialog.Description className="sr-only">
+              Configure your OpenAI API key and other settings
+            </Dialog.Description>
 
             <div className="space-y-4">
               <div>

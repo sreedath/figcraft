@@ -1,6 +1,5 @@
 import type { FigureSchema, FigureElement } from "@/types/figure";
 import { getSideCenter } from "@/lib/utils/geometry";
-import type { ExcalidrawElement } from "@excalidraw/excalidraw/types/element/types";
 
 type MutableElement = Record<string, unknown>;
 
@@ -324,7 +323,7 @@ function convertImageSlot(
 
 export function schemaToExcalidrawElements(
   schema: FigureSchema
-): ExcalidrawElement[] {
+): MutableElement[] {
   const excalidrawElements: MutableElement[] = [];
 
   // Containers first (background), then blocks, text, arrows on top
@@ -356,5 +355,5 @@ export function schemaToExcalidrawElements(
     );
   }
 
-  return excalidrawElements as unknown as ExcalidrawElement[];
+  return excalidrawElements;
 }

@@ -104,6 +104,9 @@ export function ExportDialog() {
                 </button>
               </Dialog.Close>
             </div>
+            <Dialog.Description className="sr-only">
+              Choose an export format for your figure
+            </Dialog.Description>
 
             <div className="space-y-2">
               <Button

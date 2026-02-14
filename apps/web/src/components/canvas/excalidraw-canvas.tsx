@@ -3,11 +3,16 @@
 import { useCallback, useEffect, useState, useRef } from "react";
 import { useCanvasStore } from "@/stores/canvas-store";
 import { schemaToExcalidrawElements } from "@/lib/excalidraw/schema-to-elements";
-import type { ExcalidrawImperativeAPI } from "@excalidraw/excalidraw/types/types";
+
+interface ExcalidrawAPI {
+  updateScene: (scene: Record<string, unknown>) => void;
+  scrollToContent: (target?: unknown, opts?: Record<string, unknown>) => void;
+  getSceneElements: () => unknown[];
+}
 
 export function ExcalidrawCanvas() {
   const [ExcalidrawComp, setExcalidrawComp] = useState<React.ComponentType<Record<string, unknown>> | null>(null);
-  const excalidrawRef = useRef<ExcalidrawImperativeAPI | null>(null);
+  const excalidrawRef = useRef<ExcalidrawAPI | null>(null);
   const currentFigure = useCanvasStore((s) => s.currentFigure);
 
   // Dynamic import for Excalidraw (client-side only)
@@ -35,7 +40,7 @@ export function ExcalidrawCanvas() {
     }, 100);
   }, [currentFigure]);
 
-  const handleExcalidrawRef = useCallback((api: ExcalidrawImperativeAPI) => {
+  const handleExcalidrawRef = useCallback((api: ExcalidrawAPI) => {
     excalidrawRef.current = api;
   }, []);
 
