@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #fafafa;
+    --foreground: #0f172a;
+    --surface: #ffffff;
+    --border: #e2e8f0;
+    --muted: #94a3b8;
+    --accent: #3b82f6;
+  }
+
+  .dark {
+    --background: #0f172a;
+    --foreground: #e2e8f0;
+    --surface: #1e293b;
+    --border: #334155;
+    --muted: #64748b;
+    --accent: #60a5fa;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+  }
+}
+
+/* Excalidraw overrides */
+.excalidraw .App-menu_top {
+  display: none !important;
+}
+
+.excalidraw .layer-ui__wrapper__top-right {
+  display: none !important;
+}
+
+.excalidraw .App-menu__left {
+  display: none !important;
+}
+
+.excalidraw .App-bottom-bar {
+  display: none !important;
+}
+
+.excalidraw {
+  --color-surface-high: var(--surface) !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
